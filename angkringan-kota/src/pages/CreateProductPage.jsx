@@ -44,40 +44,13 @@ export default function CreateProductPage() {
             setDescriptionProduct("")
             setPriceProduct("")
         }
-        if (image) {
-            fetch('https://663b2a3dfee6744a6ea08fb2.mockapi.io/product', {
-                method: 'POST',
-                body: JSON.stringify({ image }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-                .then(response => response.json())
-                .then(data => {
-                    setResponse(data);
-                    console.log(data);
-                })
-                .catch(error => console.error('Error:', error));
-            }
+            getProduct()
     }
 
-    // const handleFileChange = (e) => {
-    //     const file = e.target.files[0];
-    //     const reader = new FileReader();
-        
-    //     reader.onloadend = () => {
-    //       setImage(reader.result);
-    //     };
-    
-    //     if (file) {
-    //       reader.readAsDataURL(file);
-    //     }
-    //   };
 
 
     const deleteData = (id) => {
         axios.delete("https://663b2a3dfee6744a6ea08fb2.mockapi.io/product/" + id)
-        console.log("ppppp")
     }
 
     const editData = (id) => {
@@ -142,36 +115,13 @@ export default function CreateProductPage() {
                             />
                     </div>
                 </div>
-                {/* <div className="my-5">
-                    <div>
-                        <label htmlFor="">Product Image :</label>
-                    </div>
-                    <input type="file" accept="image/*" onChange={handleFileChange} />
-                    <input
-                        type="file"
-                        className="file-input file-input-bordered w-96"
-                        onChange={(e) => setProductImage(e.target.files[0])}
-                        />
-                </div> */}
-                <div className="my-5">
+                                <div className="my-5">
                     <button type="submit" className="btn" onClick={addData}> 
                         Submit
                     </button>
                 </div>
             </form>
         </div>
-        {image && (
-        <div>
-          <h3>Preview</h3>
-          <img src={image} alt="Preview" style={{ maxWidth: '100%' }} />
-        </div>
-      )}
-      {response && (
-        <div>
-          <h3>Response from MockAPI</h3>
-          <pre>{JSON.stringify(response, null, 2)}</pre>
-        </div>
-      )}
 
         {/* List Product */}
         <h1 className="text-3xl text-center my-6">List Product</h1>
