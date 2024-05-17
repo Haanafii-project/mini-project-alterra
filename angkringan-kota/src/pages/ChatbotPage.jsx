@@ -14,7 +14,7 @@ export default function chatbotPage() {
         setuserInput(data.target.value)
     }
 
-    const API_KEY = 'sk-proj-oK4JnrInGNtdKI3VD80yT3BlbkFJh0sFpXW8GYblniiW18EU';
+    const API_KEY = 'sk-proj-I8gY7bR1k1WP7wab2GVxT3BlbkFJ5uXNr3sUOMOVxPFqcynh';
 
     async function handleClick (e) {
         console.log(userInput)
